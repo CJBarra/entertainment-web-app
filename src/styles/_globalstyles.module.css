@@ -1,0 +1,59 @@
+body {
+  background-color: var(--theme-primary);
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-l);
+  color: var(--text-primary);
+}
+
+h1 {
+  font-size: var(--heading-lg);
+  font-weight: var(--font-weight-l);
+}
+
+h2 {
+  font-weight: var(--font-weight-l);
+}
+
+h3 {
+  font-weight: var(--font-weight-m);
+}
+
+h2, h3 {
+  font-size: var(--heading-md);
+}
+
+h4 {
+  font-size: var(--heading-xs);
+  font-weight: var(--font-weight-m);
+}
+
+.body-m {
+  font-size: var(--body-m);
+}
+
+.body-sm {
+  font-size: var(--body-sm);
+  opacity: 0.75;
+}
+
+input[type=text] {
+  opacity: 0.5;
+}
+
+input[type=text]:active, input[type=text]:focus {
+  opacity: 1;
+}
+
+input[type=text]:required {
+  opacity: 1;
+  color: var(--theme-accent);
+}
+
+button {
+  background-color: var(--theme-accent);
+}
+
+button:hover, button:focus {
+  background-color: var(--text-primary);
+  color: var(--text-hover);
+}

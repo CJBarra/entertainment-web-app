@@ -1,0 +1,21 @@
+:root {
+  --text-primary: hsl(0,0%,100%);
+  --text-hover: hsl(223, 36%, 14%);
+  --theme-primary: hsl(223, 30%, 9%);
+  --theme-secondary: hsl(223, 23%, 46%);
+  --theme-accent: hsl(0, 97%, 63%);
+
+  /* fonts */
+  --font-family: 'Outfit', sans-serif;
+  
+  --font-weight-l: 300;
+  --font-weight-m: 500;
+
+  --heading-lg: 2rem; /* 32px */
+  --heading-md: 1.5rem; /* 24px */
+  --heading-xs: 1.125rem; /* 18px */
+
+  --body-m: 0.9375rem; /* 15px */
+  --body-sm: 0.8125rem; /* 13px */
+}
+
