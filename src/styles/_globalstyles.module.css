@@ -1,21 +1,22 @@
 body {
   background-color: var(--theme-primary);
   font-family: var(--font-family);
-  font-weight: var(--font-weight-l);
+  font-weight: var(--fw-300);
   color: var(--text-primary);
+  padding-inline: 1rem;
 }
 
 h1 {
   font-size: var(--heading-lg);
-  font-weight: var(--font-weight-l);
+  font-weight: var(--fw-300);
 }
 
 h2 {
-  font-weight: var(--font-weight-l);
+  font-weight: var(--fw-300);
 }
 
 h3 {
-  font-weight: var(--font-weight-m);
+  font-weight: var(--fw-reg);
 }
 
 h2, h3 {
@@ -24,7 +25,7 @@ h2, h3 {
 
 h4 {
   font-size: var(--heading-xs);
-  font-weight: var(--font-weight-m);
+  font-weight: var(--fw-reg);
 }
 
 .body-m {
@@ -56,4 +57,17 @@ button {
 button:hover, button:focus {
   background-color: var(--text-primary);
   color: var(--text-hover);
+}
+
+img {
+  position: relative;
+  border-radius: 8px;
+}
+
+
+@media (min-width: 75em) {
+  body {
+    max-width: 86em;
+    margin-inline: auto;
+  }
 }

@@ -2,3 +2,5 @@
 @import "./_variables.module.css";
 @import "./_globalstyles.module.css";
 
+@import "./gridStyles.module.css"
+
