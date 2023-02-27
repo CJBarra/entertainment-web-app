@@ -1,10 +1,10 @@
 import { ReactNode } from "react";
+import { StyledGridLayout } from "@/styles";
 
 type GridProps = { children: ReactNode };
 
 function GridLayout({ children }: GridProps) {
-  return <div className={"grid img__grid"}>{children}</div>;
+  return <StyledGridLayout>{children}</StyledGridLayout>;
 }
 
 export default GridLayout;
-
