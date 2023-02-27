@@ -1,11 +1,8 @@
 import { ReactNode } from "react";
 import styled from "styled-components/macro";
 
-const StyledSlider = styled.ul`
-  list-style: none;
+const StyledSlider = styled.div`
   position: relative;
-  display: flex;
-  width: 156rem;
   padding: 0;
 
   .slider__img {
@@ -13,18 +10,25 @@ const StyledSlider = styled.ul`
     width: 100%;
     object-fit: cover;
   }
-  .slider__img__bg{
-    /* height: 100%; */
-  }
-  .slider__meta__overlay{
+`;
 
-  }
+const StyledSliderScroller = styled.div`
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 45%;
+  overflow-x: hidden;
 `;
 
 type SliderProps = { children: ReactNode };
 
 function SliderLayout({ children }: SliderProps) {
-  return <StyledSlider>{children}</StyledSlider>;
+  return (
+    <StyledSlider>
+      <StyledSliderScroller>
+        {children}
+      </StyledSliderScroller>
+    </StyledSlider>
+  );
 }
 
 export default SliderLayout;

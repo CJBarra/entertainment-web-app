@@ -1,3 +1,15 @@
+/**
+ * Install of @types/styled-components for typescript
+ * https://www.npmjs.com/package/@types/styled-components
+ *
+ * Babel styled components plugin used for smaller bundling.
+ *
+ * BABEL REQUIRED: 'keyframes' needs the library install of vite-plugin-babel-macros
+ * found here: "https://www.npmjs.com/package/vite-plugin-babel-macros"
+ *
+ * Babel config file '.babelrc' will need to be created in root directory for plugins
+ */
+
 import { createGlobalStyle } from "styled-components/macro";
 import reset from "./reset";
 import variables from "./variables";
@@ -11,7 +23,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: var(--font-family);
     font-weight: var(--fw-300);
     color: var(--text-primary);
-    padding-inline: 1rem;
+    transition: all 300ms ease;
   }
 
   h1 {
@@ -59,32 +71,27 @@ const GlobalStyle = createGlobalStyle`
   }
 
   button {
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: all 300ms ease;
+  }
+
+  button .cta {
     background-color: var(--theme-accent);
   }
 
   button:hover, button:focus {
     background-color: var(--text-primary);
     color: var(--text-hover);
+
+    svg > path{
+      fill: var(--text-hover);
+      stroke: var(--text-hover);
+    }
   }
 
   picture > img {
     position: relative;
     border-radius: 8px;
-  }
-
-  .container {
-    position: relative;
-    padding-inline: 2rem;
-  }
-  .container:first-child {
-    padding-left: 0;
-  }
-  .container:last-child {
-    padding-right: 0;
-  }
-
-  .absolute {
-    position: absolute;
   }
 
   

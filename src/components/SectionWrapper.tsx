@@ -1,7 +1,9 @@
 import { ReactNode } from "react";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 
 const StyledSection = styled.section`
+  margin-bottom: 4rem;
+
   &:first-of-type {
     .section__inner {
       padding-top: 0;
@@ -9,6 +11,7 @@ const StyledSection = styled.section`
   }
 
   .section__top{
+    position: relative;
     padding-block: 2rem;
   }
 `;

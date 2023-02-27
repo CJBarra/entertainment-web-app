@@ -1,15 +1,3 @@
-/**
- * Install of @types/styled-components for typescript
- * https://www.npmjs.com/package/@types/styled-components
- *
- * Babel styled components plugin used for smaller bundling.
- *
- * BABEL REQUIRED: 'keyframes' needs the library install of vite-plugin-babel-macros
- * found here: "https://www.npmjs.com/package/vite-plugin-babel-macros"
- *
- * Babel config file '.babelrc' will need to be created in root directory for plugins
- */
-
 import styled, { keyframes } from "styled-components/macro";
 
 const dance = keyframes`
@@ -26,21 +14,21 @@ const StyledLoader = styled.div`
   justify-content: center;
   min-height: 50vh;
   width: 100%;
+`;
 
-  .bars {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    height: 36px;
-    width: 100px;
-    min-width: 100px;
+const StyledBarBlock = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 36px;
+  width: 100px;
+  min-width: 100px;
 
-    margin: 0;
-    left: 0;
-    right: 0;
-    z-index: 2;
-  }
+  margin: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
 `;
 
 interface BarProps {
@@ -67,14 +55,14 @@ const StyledBar = styled.div<BarProps>`
 export default function Loader() {
   return (
     <StyledLoader>
-      <div className="bars">
+      <StyledBarBlock className="bar__block">
         <StyledBar delay="715ms" />
         <StyledBar delay="25ms" />
         <StyledBar delay="190ms" />
         <StyledBar delay="315ms" />
         <StyledBar delay="125ms" />
         <StyledBar delay="82ms" />
-      </div>
+      </StyledBarBlock>
     </StyledLoader>
   );
 }
