@@ -8,7 +8,7 @@ const StyledSliderCell = styled.div`
   justify-content: flex-start;
 
   margin-right: 2.5rem;
-  border-inline: 2px solid var(--theme-accent);
+  /* border-inline: 2px solid var(--theme-accent); */
 `;
 
 const StyledCellImage = styled.picture`
@@ -17,10 +17,22 @@ const StyledCellImage = styled.picture`
 `;
 
 const StyledCellMetadata = styled.div`
+  --padding-inline: 1.5rem;
+  --padding-block: 1rem;
+
   position: absolute;
+  padding-inline: var(--padding-inline);
+  padding-block: var(--padding-block);
+
+  .item__title {
+    font-size: var(--heading-md);
+  }
 `;
 
 const StyledButton = styled.button`
+  --btn-spacing-inline: 1.5rem;
+  --btn-spacing-block: 1rem;
+
   position: absolute;
   height: 32px;
   width: 32px;
@@ -30,9 +42,8 @@ const StyledButton = styled.button`
   text-align: -webkit-center;
   z-index: 2;
 
-  --btn-spacing: 1rem;
-  right: var(--btn-spacing);
-  top: var(--btn-spacing);
+  top: var(--btn-spacing-block);
+  right: var(--btn-spacing-inline);
 
   &:hover {
     cursor: pointer;
