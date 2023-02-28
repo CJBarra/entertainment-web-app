@@ -9,7 +9,8 @@ const StyledItemMetadata = styled.div`
     display: flex;
     position: relative;
     width: 100%;
-    padding-block: 0.5rem;
+    margin-top: 0.5rem;
+    padding-block: 0;
     padding-inline: 0;
     opacity: 0.75;
     font-size: var(--body-sm);

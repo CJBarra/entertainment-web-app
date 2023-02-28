@@ -1,5 +1,5 @@
-import styled from "styled-components/macro";
-import ItemMetadata from "./ItemMetadata";
+import styled from 'styled-components/macro';
+import ItemMetadata from './ItemMetadata';
 
 const StyledSliderCell = styled.div`
   position: relative;
@@ -17,15 +17,26 @@ const StyledCellImage = styled.picture`
 `;
 
 const StyledCellMetadata = styled.div`
-  --padding-inline: 1.5rem;
-  --padding-block: 1rem;
+  --padding-inline: 0.8rem;
+  --padding-block: 0.8rem;
 
   position: absolute;
   padding-inline: var(--padding-inline);
   padding-block: var(--padding-block);
+  width: 100%;
 
   .item__title {
     font-size: var(--heading-md);
+  }
+
+  /* Media - Tablet and up */
+  /* 600px */
+  @media (min-width: 37.5rem) {
+    --padding-inline: 1.5rem;
+    --padding-block: 1rem;
+    
+    padding-inline: var(--padding-inline);
+    padding-block: var(--padding-block);
   }
 `;
 
@@ -79,11 +90,7 @@ export default function SliderItem({ path, thumbType }: ItemProps) {
           srcSet={path.thumbnail[thumbType]?.medium}
           type="image/jpeg"
         />
-        <img
-          className="cell__img"
-          src={path.thumbnail[thumbType]?.small}
-          alt={path.title}
-        />
+        <img className="cell__img" src={path.thumbnail[thumbType]?.small} alt={path.title} />
       </StyledCellImage>
 
       <StyledCellMetadata className="cell__meta__overlay">

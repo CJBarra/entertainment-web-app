@@ -10,9 +10,9 @@
  * Babel config file '.babelrc' will need to be created in root directory for plugins
  */
 
-import { createGlobalStyle } from "styled-components/macro";
-import reset from "./reset";
-import variables from "./variables";
+import { createGlobalStyle } from 'styled-components/macro';
+import reset from './reset';
+import variables from './variables';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -24,6 +24,28 @@ const GlobalStyle = createGlobalStyle`
     font-weight: var(--fw-300);
     color: var(--text-primary);
     transition: all 300ms ease;
+
+    /* width */
+    ::-webkit-scrollbar {
+      width: 0.6rem;
+    }
+    
+    /* Track */
+    ::-webkit-scrollbar-track {
+      background: var(--text-hover);
+    }
+    
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: var(--theme-accent);
+      border-radius: 6px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      --scroll-hover: hsl(0, 100%, 46%);
+      background: var(--scroll-hover);
+    }
   }
 
   h1 {
@@ -91,7 +113,7 @@ const GlobalStyle = createGlobalStyle`
 
   picture > img {
     position: relative;
-    border-radius: 8px;
+    border-radius: 0.375rem;
   }
 
   

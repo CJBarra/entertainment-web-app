@@ -1,9 +1,13 @@
-import { ReactNode } from "react";
-import styled from "styled-components/macro";
+import { ReactNode } from 'react';
+import styled from 'styled-components/macro';
 
 const StyledSlider = styled.div`
   position: relative;
   padding: 0;
+  max-width: 100%;
+  width: 1440px;
+  overflow: hidden;
+  /* width: 100% ; */
 
   .slider__img {
     height: 100%;
@@ -15,8 +19,22 @@ const StyledSlider = styled.div`
 const StyledSliderScroller = styled.div`
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: 45%;
-  overflow-x: hidden;
+  grid-auto-columns: 66.6%;
+  overflow-x: scroll;
+  
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  
+  
+  /* Media - Tablet and up */
+  /* 600px */
+  @media (min-width: 37.5rem) {
+    grid-auto-columns: 45%;
+  }
 `;
 
 type SliderProps = { children: ReactNode };
@@ -24,9 +42,7 @@ type SliderProps = { children: ReactNode };
 function SliderLayout({ children }: SliderProps) {
   return (
     <StyledSlider>
-      <StyledSliderScroller>
-        {children}
-      </StyledSliderScroller>
+      <StyledSliderScroller>{children}</StyledSliderScroller>
     </StyledSlider>
   );
 }
