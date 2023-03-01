@@ -22,6 +22,7 @@ const variables = css`
 
     --body-m: 0.9375rem; /* 15px */
     --body-sm: 0.8125rem; /* 13px */
+    --body-xs: 0.6rem; /* 11px */
   }
 `;
 

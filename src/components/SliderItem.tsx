@@ -1,17 +1,15 @@
-import styled from 'styled-components/macro';
-import ItemMetadata from './ItemMetadata';
+import styled from "styled-components/macro";
+import ItemMetadata from "./ItemMetadata";
 
 const StyledSliderCell = styled.div`
   position: relative;
-  display: flex;
+  display: inline-flex;
   align-items: flex-end;
-  justify-content: flex-start;
 
-  margin-right: 2.5rem;
   /* border-inline: 2px solid var(--theme-accent); */
 `;
 
-const StyledCellImage = styled.picture`
+const StyledSliderImage = styled.picture`
   object-fit: cover;
   inset: 0;
 `;
@@ -34,13 +32,13 @@ const StyledCellMetadata = styled.div`
   @media (min-width: 37.5rem) {
     --padding-inline: 1.5rem;
     --padding-block: 1rem;
-    
+
     padding-inline: var(--padding-inline);
     padding-block: var(--padding-block);
   }
 `;
 
-const StyledButton = styled.button`
+const StyledBookmarkButton = styled.button`
   --btn-spacing-inline: 1.5rem;
   --btn-spacing-block: 1rem;
 
@@ -69,7 +67,7 @@ type ItemProps = {
 export default function SliderItem({ path, thumbType }: ItemProps) {
   return (
     <StyledSliderCell className="slider__cell">
-      <StyledButton>
+      <StyledBookmarkButton>
         <svg width="12" height="14" xmlns="http://www.w3.org/2000/svg">
           <path
             d="m10.518.75.399 12.214-5.084-4.24-4.535 4.426L.75 1.036l9.768-.285Z"
@@ -78,8 +76,9 @@ export default function SliderItem({ path, thumbType }: ItemProps) {
             fill="none"
           />
         </svg>
-      </StyledButton>
-      <StyledCellImage className="cell__img__container ">
+      </StyledBookmarkButton>
+
+      <StyledSliderImage className="cell__img__container ">
         <source
           media="(min-width: 900px)"
           srcSet={path.thumbnail[thumbType]?.large}
@@ -90,8 +89,12 @@ export default function SliderItem({ path, thumbType }: ItemProps) {
           srcSet={path.thumbnail[thumbType]?.medium}
           type="image/jpeg"
         />
-        <img className="cell__img" src={path.thumbnail[thumbType]?.small} alt={path.title} />
-      </StyledCellImage>
+        <img
+          className="cell__img"
+          src={path.thumbnail[thumbType]?.small}
+          alt={path.title}
+        />
+      </StyledSliderImage>
 
       <StyledCellMetadata className="cell__meta__overlay">
         <ItemMetadata

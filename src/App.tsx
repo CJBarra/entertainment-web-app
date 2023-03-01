@@ -2,9 +2,9 @@ import styled from "styled-components/macro";
 
 import api from "@/api/v1/data.json";
 import {
+  Loader,
   GridItem,
   GridLayout,
-  Loader,
   SectionWrapper,
   SliderItem,
   SliderLayout,

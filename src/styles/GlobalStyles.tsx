@@ -66,7 +66,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h4 {
-    font-size: var(--body-m);
+    font-size: var(--body-sm);
     font-weight: var(--fw-reg);
   }
 

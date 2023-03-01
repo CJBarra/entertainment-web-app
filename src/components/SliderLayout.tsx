@@ -20,6 +20,7 @@ const StyledSliderScroller = styled.div`
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 66.6%;
+  column-gap: 1rem;
   overflow-x: scroll;
   
   /* Hide scrollbar for Chrome, Safari and Opera */
@@ -34,6 +35,7 @@ const StyledSliderScroller = styled.div`
   /* 600px */
   @media (min-width: 37.5rem) {
     grid-auto-columns: 45%;
+    column-gap: 2rem;
   }
 `;
 

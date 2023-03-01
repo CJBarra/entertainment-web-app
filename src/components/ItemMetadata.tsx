@@ -13,7 +13,7 @@ const StyledItemMetadata = styled.div`
     padding-block: 0;
     padding-inline: 0;
     opacity: 0.75;
-    font-size: var(--body-sm);
+    font-size: var(--body-xs);
   }
 
   .item__metadata li:not(:first-child):before {
@@ -37,6 +37,12 @@ const StyledItemMetadata = styled.div`
 
   .icon-category img {
     margin-inline: 0.25rem;
+  }
+
+  @media (min-width: 37.5rem){
+    .item__metadata {
+      font-size: var(--body-sm);
+    }
   }
 `;
 
