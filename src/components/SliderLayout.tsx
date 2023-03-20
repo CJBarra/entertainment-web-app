@@ -34,7 +34,7 @@ const StyledSliderScroller = styled.div`
   /* Media - Tablet and up */
   /* 600px */
   @media (min-width: 37.5rem) {
-    grid-auto-columns: 45%;
+    grid-auto-columns: 36.66%;
     column-gap: 2rem;
   }
 `;

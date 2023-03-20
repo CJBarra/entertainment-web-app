@@ -6,7 +6,6 @@ import {
   GridItem,
   GridLayout,
   SectionWrapper,
-  SliderItem,
   SliderLayout,
 } from "@/components";
 import { GlobalStyle } from "@/styles";
@@ -32,9 +31,9 @@ function App() {
           <SliderLayout>
             {api ? (
               api
-                .filter((record) => (record.isTrending === true ? record : ""))
+                .filter((record) => (record.isTrending === true ? record : null))
                 .map((record) => (
-                  <SliderItem
+                  <GridItem
                     path={record}
                     thumbType={"trending"}
                     key={record.year + "_" + record.title}
@@ -52,7 +51,7 @@ function App() {
           <GridLayout>
             {api ? (
               api
-                .filter((record) => (record.isTrending === false ? record : ""))
+                .filter((record) => (record.isTrending === false ? record : null))
                 .map((record) => (
                   <GridItem
                     path={record}
