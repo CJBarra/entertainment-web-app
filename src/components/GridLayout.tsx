@@ -14,6 +14,7 @@ const StyledGridLayout = styled.div`
   // 600px
   @media (min-width: 37.5rem) {
     --gap: 2rem;
+    
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     row-gap: var(--gap);
     column-gap: var(--gap);

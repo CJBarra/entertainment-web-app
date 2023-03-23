@@ -1,5 +1,5 @@
-import { ReactNode } from 'react';
-import styled from 'styled-components/macro';
+import { ReactNode } from "react";
+import styled from "styled-components/macro";
 
 const StyledSlider = styled.div`
   position: relative;
@@ -7,7 +7,6 @@ const StyledSlider = styled.div`
   max-width: 100%;
   width: 1440px;
   overflow: hidden;
-  /* width: 100% ; */
 
   .slider__img {
     height: 100%;
@@ -22,19 +21,22 @@ const StyledSliderScroller = styled.div`
   grid-auto-columns: 66.6%;
   column-gap: 1rem;
   overflow-x: scroll;
-  
+
   /* Hide scrollbar for Chrome, Safari and Opera */
   &::-webkit-scrollbar {
     display: none;
   }
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
-  
-  
+
   /* Media - Tablet and up */
+  /* 900px */
+  @media (min-width: 56.25rem) {
+    grid-auto-columns: 36.66%;
+  }
+
   /* 600px */
   @media (min-width: 37.5rem) {
-    grid-auto-columns: 36.66%;
     column-gap: 2rem;
   }
 `;

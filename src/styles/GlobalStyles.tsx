@@ -10,9 +10,9 @@
  * Babel config file '.babelrc' will need to be created in root directory for plugins
  */
 
-import { createGlobalStyle } from 'styled-components/macro';
-import reset from './reset';
-import variables from './variables';
+import { createGlobalStyle } from "styled-components/macro";
+import reset from "./reset";
+import variables from "./variables";
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -79,11 +79,23 @@ const GlobalStyle = createGlobalStyle`
     opacity: 0.75;
   }
 
-  input[type=text] {
+  input {
+    outline: none;
     opacity: 0.5;
   }
 
-  input[type=text]:active, input[type=text]:focus {
+  input:active, 
+  input:focus{
+    opacity: 1;
+  }
+
+  input[type=search]:active, 
+  input[type=search]:focus {
+    caret-color: var(--theme-accent);
+    border-bottom: 1px solid var(--theme-secondary);
+  }
+
+  input:not([value = ""]) {
     opacity: 1;
   }
 
@@ -106,10 +118,17 @@ const GlobalStyle = createGlobalStyle`
     color: var(--text-hover);
 
     svg > path{
-      fill: var(--text-hover);
       stroke: var(--text-hover);
     }
   }
+
+  button:active {
+    svg > path{
+      fill: var(--text-primary);
+      stroke: var(--text-primary);
+    }
+  }
+
 
   picture > img {
     position: relative;

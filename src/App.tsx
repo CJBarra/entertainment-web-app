@@ -1,16 +1,17 @@
 import styled from "styled-components/macro";
 
-import api from "@/api/v1/data.json";
 import {
   Loader,
   GridItem,
   GridLayout,
   SectionWrapper,
   SliderLayout,
+  SearchBar,
 } from "@/components";
 import { GlobalStyle } from "@/styles";
+import api from "@/api/v1/data.json";
 
-const Container = styled.div`
+const Content = styled.div`
   position: relative;
   padding-inline: 1rem;
   width: 100%;
@@ -26,12 +27,19 @@ function App() {
   return (
     <div className="App">
       <GlobalStyle />
-      <Container className="app__container">
+
+      <Content>
+        <SectionWrapper title={""}>
+          <SearchBar />
+        </SectionWrapper>
+
         <SectionWrapper title={"Trending"}>
           <SliderLayout>
             {api ? (
               api
-                .filter((record) => (record.isTrending === true ? record : null))
+                .filter((record) =>
+                  record.isTrending === true ? record : null
+                )
                 .map((record) => (
                   <GridItem
                     path={record}
@@ -51,7 +59,9 @@ function App() {
           <GridLayout>
             {api ? (
               api
-                .filter((record) => (record.isTrending === false ? record : null))
+                .filter((record) =>
+                  record.isTrending === false ? record : null
+                )
                 .map((record) => (
                   <GridItem
                     path={record}
@@ -64,7 +74,7 @@ function App() {
             )}
           </GridLayout>
         </SectionWrapper>
-      </Container>
+      </Content>
     </div>
   );
 }

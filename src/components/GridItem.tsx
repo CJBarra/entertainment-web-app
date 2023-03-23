@@ -1,5 +1,7 @@
 import styled from 'styled-components/macro';
+
 import ItemMetadata from './ItemMetadata';
+// import PlayIcon from '../assets/icon-play.svg'
 
 const StyledGridItem = styled.div``;
 
@@ -37,8 +39,8 @@ const StyledBookmarkBtn = styled.button`
 
 const StyledPlayBtn = styled.button`
   position: absolute;
-  inset: 0;
   border: none;
+  inset: 0;
   opacity: 0;
   z-index: 600;
 
@@ -203,13 +205,8 @@ function GridItem({ path, thumbType }: GridItemProps) {
 
         <StyledSliderImage className="cell__img__container ">
           <source
-            media="(min-width: 900px)"
-            srcSet={path.thumbnail[thumbType]?.large}
-            type="image/jpeg"
-          />
-          <source
             media="(min-width: 600px)"
-            srcSet={path.thumbnail[thumbType]?.medium}
+            srcSet={path.thumbnail[thumbType]?.large}
             type="image/jpeg"
           />
           <img className="cell__img" src={path.thumbnail[thumbType]?.small} alt={path.title} />
