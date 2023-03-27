@@ -13,7 +13,7 @@ const StyledLoader = styled.div`
   align-items: center;
   justify-content: center;
   min-height: 50vh;
-  width: 100%;
+  width: var(--w-fill);
 `;
 
 const StyledBarBlock = styled.div`

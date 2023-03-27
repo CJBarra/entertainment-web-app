@@ -10,6 +10,7 @@ const reset = css`
   /*  Remove default margin */
   * {
     margin: 0;
+    padding: 0;
   }
 
   html,

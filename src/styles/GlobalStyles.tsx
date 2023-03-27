@@ -49,7 +49,6 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h1 {
-    font-size: var(--heading-lg);
     font-weight: var(--fw-300);
   }
 
@@ -137,9 +136,9 @@ const GlobalStyle = createGlobalStyle`
 
   
   /* Media - Tablet and up */
-  /* 600px */
-  @media (min-width: 37.5rem){
-    h2 {
+  /* 900px */
+  @media (min-width: 56.25rem){
+    h1, h2 {
       font-size: var(--heading-lg);
     }
     h4 {
@@ -151,7 +150,7 @@ const GlobalStyle = createGlobalStyle`
   /* 1200px */
   @media (min-width: 75em) {
     body {
-      max-width: 86em;
+      max-width: var(--max-width);
       margin-inline: auto;
     }
   }

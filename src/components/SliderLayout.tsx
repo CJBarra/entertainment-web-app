@@ -4,13 +4,13 @@ import styled from "styled-components/macro";
 const StyledSlider = styled.div`
   position: relative;
   padding: 0;
-  max-width: 100%;
-  width: 1440px;
+  max-width: var(--w-fill);
+  width: var(--max-width);
   overflow: hidden;
 
   .slider__img {
-    height: 100%;
-    width: 100%;
+    height: var(--h-fill);
+    width: var(--w-fill);
     object-fit: cover;
   }
 `;

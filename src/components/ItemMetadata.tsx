@@ -5,14 +5,14 @@ const categoryIconTV = "src/assets/icon-category-tv.svg";
 
 const StyledItemMetadata = styled.div`
   .item__metadata {
-    list-style: none;
-    display: flex;
     position: relative;
-    width: 100%;
+    display: flex;
+    width: var(--w-fill);
     margin-top: 0.5rem;
     padding-block: 0;
     padding-inline: 0;
     opacity: 0.75;
+    list-style: none;
     font-size: var(--body-xs);
   }
 

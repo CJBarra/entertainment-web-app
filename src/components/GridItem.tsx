@@ -121,7 +121,7 @@ const StyledCellMetadata = styled.div`
   position: absolute;
   padding-inline: var(--padding-inline);
   padding-block: var(--padding-block);
-  width: 100%;
+  width: var(--w-fill);
 
   .item__title {
     font-size: var(--heading-sm);
