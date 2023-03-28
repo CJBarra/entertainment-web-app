@@ -14,22 +14,18 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
-        errorElement: <ErrorPage />,
       },
       {
         path: "/movies",
         element: <Movies />,
-        errorElement: <ErrorPage />,
       },
       {
         path: "/tv-series",
         element: <TvSeries />,
-        errorElement: <ErrorPage />,
       },
       {
         path: "/bookmarked",
         element: <Bookmarked />,
-        errorElement: <ErrorPage />,
       },
     ],
   },

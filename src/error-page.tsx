@@ -1,6 +1,8 @@
 import { isRouteErrorResponse, useRouteError } from "react-router-dom";
 import styled from "styled-components/macro";
 
+import { GlobalStyle } from "./styles";
+
 const ErrorElement = styled.div`
   display: flex;
   align-items: center;
@@ -32,6 +34,8 @@ export default function ErrorPage() {
   if (isRouteErrorResponse(error)) {
     return (
       <ErrorElement id="error-page">
+        <GlobalStyle />
+
         <h1>Hmm...</h1>
         <ErrorMessage>Something went wrong here.</ErrorMessage>
         <ErrorMessage>
