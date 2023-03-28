@@ -146,10 +146,10 @@ const StyledTrendingBookmark = styled.button`
   --btn-spacing: 1rem;
 
   position: absolute;
-  height: 32px;
-  width: 32px;
   border: none;
   border-radius: 50%;
+  height: 32px;
+  width: 32px;
   text-align: center;
   text-align: -webkit-center;
   z-index: 999;

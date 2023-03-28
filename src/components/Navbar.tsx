@@ -6,18 +6,32 @@ const NavHero = styled.nav`
   border-radius: 0.375rem;
   position: relative;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  height: 70px;
-
+  
+  height: 56px;
+  margin-block: 0 1rem;
+  margin-inline: 0;
   padding-inline: 1rem;
-  margin-inline: 1rem;
-  margin-block: 1rem;
 
+
+  /* Media - Tablet and up */
+  // 600px
   @media (min-width: 37.5rem) {
-    padding-inline: 1.5rem;
-    margin-inline: 2rem;
+    height: 70px;
     margin-block: 2rem;
+    margin-inline: 1.5rem;
+    padding-inline: 1.5rem;
+  }
+
+  /* Media - Small Desktop and up */
+  // 900px
+  @media (min-width: 56.25rem) {
+    flex-direction: column;
+    width: 4.5rem;
+    height: 60rem;
+    margin-inline: 1.5rem;
+    padding-block: 2rem;
+    padding-inline: 0;
   }
 `;
 
@@ -25,26 +39,46 @@ const NavButtonGroup = styled.ul`
   list-style: none;
   display: flex;
   justify-content: space-between;
+  margin-inline: auto;
 
-  li:not(:last-of-type) {
-    margin-inline: 0 1.5rem;
 
-    &:hover,
-    &:focus {
-      svg {
-        path:hover,
-        path:focus {
-          fill: var(--theme-accent);
-        }
+  li {
+    a:hover,
+    a:focus {
+      svg path {
+        fill: var(--theme-accent);
+      }
+    }
+
+    a:active {
+      svg path {
+        fill: var(--text-primary);
       }
     }
   }
+  li:not(:last-of-type) {
+    margin-inline: 0 1.5rem;
+  }
+
 
   @media (min-width: 37.5rem) {
     li:not(:last-of-type) {
       margin-inline: 0 2rem;
     }
   }
+
+  @media (min-width: 56.25rem) {
+    flex-direction: column;
+    align-items: center;
+    margin-block: 5rem auto;
+    margin-inline: 0;
+
+    li:not(:last-of-type) {
+      margin-block: 0 3.5rem;
+      margin-inline: 0;
+    }
+  }
+  
 `;
 
 const NavUserProfile = styled.button`
@@ -61,9 +95,9 @@ const NavUserProfile = styled.button`
   img {
     border: 1px solid var(--text-primary);
     border-radius: 50%;
+    width: 100%;
     width: 32px;
     height: 32px;
-    width: 100%;
     object-fit: cover;
   }
 `;

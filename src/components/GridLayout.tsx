@@ -5,9 +5,9 @@ const StyledGridLayout = styled.div`
   --gap: 1rem;
   
   display: grid;
-  row-gap: var(--gap);
-  column-gap: var(--gap);
   grid-template-columns: repeat(2, 1fr);
+  column-gap: var(--gap);
+  row-gap: var(--gap);
 
 
   /* Media - Tablet and up */
@@ -16,8 +16,8 @@ const StyledGridLayout = styled.div`
     --gap: 2rem;
     
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    row-gap: var(--gap);
     column-gap: var(--gap);
+    row-gap: var(--gap);
   }
 
   /* Media - Desktop and up */

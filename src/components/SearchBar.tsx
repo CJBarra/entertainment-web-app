@@ -17,20 +17,12 @@ export default function Search() {
 
 const StyledSearch = styled.div`
   margin-block: 1rem;
-  padding-inline: 1rem;
-
-  /* Media - Tablet and up */
-  // 600px
-  @media (min-width: 37.5rem) {
-    padding-inline: 2rem;
-  }
 `;
 
 const StyledInputContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: start;
-
   padding-block: 0.5rem;
 `;
 
@@ -42,7 +34,6 @@ const StyledSearchInput = styled.input.attrs((props) => ({
   border-bottom: 1px solid transparent;
   margin-inline: 0.5rem 0;
   width: var(--w-fill);
-
   color: var(--text-primary);
 
   ::placeholder {

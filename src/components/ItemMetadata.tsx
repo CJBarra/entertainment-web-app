@@ -5,15 +5,15 @@ const categoryIconTV = "src/assets/icon-category-tv.svg";
 
 const StyledItemMetadata = styled.div`
   .item__metadata {
+    list-style: none;
     position: relative;
     display: flex;
     width: var(--w-fill);
     margin-top: 0.5rem;
     padding-block: 0;
     padding-inline: 0;
-    opacity: 0.75;
-    list-style: none;
     font-size: var(--body-xs);
+    opacity: 0.75;
   }
 
   .item__metadata li:not(:first-child):before {
@@ -26,8 +26,8 @@ const StyledItemMetadata = styled.div`
   }
 
   .item__metadata img {
-    width: 12px;
     height: 12px;
+    width: 12px;
   }
 
   .icon-category {

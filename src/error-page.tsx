@@ -3,10 +3,10 @@ import styled from "styled-components/macro";
 
 const ErrorElement = styled.div`
   display: flex;
-  height: calc(100vh - 200px);
+  align-items: center;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  height: calc(100vh - 200px);
   word-break: normal;
 
   h1 {

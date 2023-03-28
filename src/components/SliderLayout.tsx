@@ -3,9 +3,9 @@ import styled from "styled-components/macro";
 
 const StyledSlider = styled.div`
   position: relative;
-  padding: 0;
   max-width: var(--w-fill);
   width: var(--max-width);
+  padding: 0;
   overflow: hidden;
 
   .slider__img {

@@ -1,37 +1,49 @@
+import { Outlet } from "react-router-dom";
 import styled from "styled-components/macro";
 
-import { Navbar, SearchBar } from "@/components";
 import { GlobalStyle } from "@/styles";
-import { Outlet } from "react-router-dom";
+import { Navbar, SearchBar } from "@/components";
 
-// route imports
-const AppLayout = styled.div `
-position: relative;
-width: var(--w-fill);
-  
-`
-const Content = styled.div`
+const AppLayout = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: var(--w-fill);
+
+  @media (min-width: 56.25rem) {
+    flex-direction: row;
+  }
 `;
 
-/* always visible */
-export function Dashboard() {
-  return (
-    <>
-      <Navbar />
-      <SearchBar />
-    </>
-  );
-}
+const ContentContainer = styled.div`
+  padding-inline: 1rem;
+
+  /* Media - Tablet and up */
+  // 600px
+  @media (min-width: 37.5rem) {
+    padding-inline: 1.5rem;
+  }
+
+  /* Media - Small Desktop and up */
+  // 900px
+  @media (min-width: 56.25rem) {
+    width: calc(100% - 7.5rem);
+    padding-block: 2rem 0;
+    padding-inline: 2rem;
+  }
+`;
 
 function App() {
   return (
-    <AppLayout className="App">
+    <AppLayout>
       <GlobalStyle />
-      <Dashboard />
-      {/* routes */}
-      <Content>
+      {/* always visibile nav && search bars */}
+      <Navbar />
+      <ContentContainer>
+        <SearchBar />
+        {/* routes */}
         <Outlet />
-      </Content>
+      </ContentContainer>
     </AppLayout>
   );
 }
