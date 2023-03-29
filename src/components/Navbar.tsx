@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components/macro";
 
 const NavHero = styled.nav`
@@ -54,7 +54,7 @@ const NavButtonGroup = styled.ul`
       }
     }
 
-    a:active {
+    .active{
       svg path {
         fill: var(--text-primary);
       }
@@ -130,24 +130,27 @@ export default function Navbar() {
 
       <NavButtonGroup>
         <li>
-          <Link to="/">
+          <NavLink
+            to="/"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
             <NavHomeSvg />
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/movies">
+          <NavLink to="/movies">
             <NavMoviesSvg />
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/tv-series">
+          <NavLink to="/tv-series">
             <NavTvSeriesSvg />
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/bookmarked">
+          <NavLink to="/bookmarked">
             <NavBookmarkedSvg />
-          </Link>
+          </NavLink>
         </li>
       </NavButtonGroup>
 

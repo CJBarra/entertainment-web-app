@@ -1,5 +1,5 @@
 /**
- * Install of @types/styled-components for typescript
+ * Install @types/styled-components for typescript
  * https://www.npmjs.com/package/@types/styled-components
  *
  * Babel styled components plugin used for smaller bundling.

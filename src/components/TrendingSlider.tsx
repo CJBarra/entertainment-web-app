@@ -6,8 +6,8 @@ import Loader from "./Loader";
 
 const StyledSlider = styled.div`
   position: relative;
-  max-width: var(--w-fill);
-  width: var(--max-width);
+  max-width: var(--max-width);
+  width: var(--w-fill);
   padding: 0;
   overflow: hidden;
 
@@ -36,6 +36,7 @@ const StyledSliderScroller = styled.div`
   // 900px
   @media (min-width: 56.25rem) {
     grid-auto-columns: 36.66%;
+    /* grid-auto-columns: minmax(36.66%, 30vmax); */
   }
 
   /* Media - Tablet and up */

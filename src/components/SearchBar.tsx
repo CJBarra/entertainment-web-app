@@ -36,12 +36,8 @@ const StyledSearchInput = styled.input.attrs((props) => ({
     opacity: 0.5; /* Firefox */
   }
 
-  :-ms-input-placeholder {
-    /* Internet Explorer 10-11 */
-    color: var(--text-primary);
-  }
-
   ::-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
     /* Microsoft Edge */
     color: var(--text-primary);
   }
@@ -59,7 +55,7 @@ const StyledSearchInput = styled.input.attrs((props) => ({
 export default function Search() {
   return (
     <StyledSearch>
-      <form>
+      <form role="search">
         <StyledInputContainer>
           <StyledIcon src={SearchSvg} alt="search" />
           <StyledSearchInput placeholder="Search for Movies or TV Series" />
