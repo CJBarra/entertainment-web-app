@@ -2,24 +2,30 @@ import { Link } from "react-router-dom";
 import styled from "styled-components/macro";
 
 const NavHero = styled.nav`
+  --nav-height: 3.5rem;
+  --block-sizing: 1rem;
+  --inline-sizing: 1rem;
+
   background: var(--theme-secondary);
   border-radius: 0.375rem;
   position: relative;
   display: flex;
   align-items: center;
-
-  height: 56px;
-  margin-block: 0 1rem;
+  height: 3.5rem;
+  margin-block: 0 var(--inline-sizing);
   margin-inline: 0;
-  padding-inline: 1rem;
+  padding-inline: var(--inline-sizing);
 
   /* Media - Tablet and up */
   // 600px
   @media (min-width: 37.5rem) {
-    height: 70px;
+    --block-sizing: 1.5rem;
+    --inline-sizing: 1.5rem;
+
+    height: 4.5rem;
     margin-block: 2rem;
-    margin-inline: 1.5rem;
-    padding-inline: 1.5rem;
+    margin-inline: var(--inline-sizing);
+    padding-inline: var(--inline-sizing);
   }
 
   /* Media - Small Desktop and up */
@@ -60,7 +66,7 @@ const NavButtonGroup = styled.ul`
   }
 
   /* Media - Tablet and up */
-  // 600px 
+  // 600px
   @media (min-width: 37.5rem) {
     li:not(:last-of-type) {
       margin-inline: 0 2rem;
@@ -70,14 +76,16 @@ const NavButtonGroup = styled.ul`
   /* Media - Small Desktop and up */
   // 900px
   @media (min-width: 56.25rem) {
-    flex-direction: column;
+    --inline-sizing: 0;
+
     align-items: center;
+    flex-direction: column;
     margin-block: 5rem auto;
-    margin-inline: 0;
+    margin-inline: var(--inline-sizing);
 
     li:not(:last-of-type) {
       margin-block: 0 3.5rem;
-      margin-inline: 0;
+      margin-inline: var(--inline-sizing);
     }
   }
 `;
@@ -94,11 +102,12 @@ const NavUserProfile = styled.button`
   }
 
   img {
+    --img-sizing: 2rem;
+
     border: 1px solid var(--text-primary);
     border-radius: 50%;
-    width: 100%;
-    width: 32px;
-    height: 32px;
+    height: var(--img-sizing);
+    width: var(--img-sizing);
     object-fit: cover;
   }
 `;

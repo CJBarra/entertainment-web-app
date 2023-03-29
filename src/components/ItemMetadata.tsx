@@ -26,8 +26,10 @@ const StyledItemMetadata = styled.div`
   }
 
   .item__metadata img {
-    height: 12px;
-    width: 12px;
+    --img-size: 0.75rem;
+
+    height: var(--img-size);
+    width: var(--img-size);
   }
 
   .icon-category {
@@ -49,10 +51,10 @@ const StyledItemMetadata = styled.div`
 `;
 
 type ItemMetadataProps = {
-  year: any;
-  rating: any;
   category: string;
+  rating: any;
   title: string;
+  year: any;
 };
 
 export default function ItemMetadata({

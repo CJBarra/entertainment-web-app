@@ -22,8 +22,8 @@ const StyledBookmarkBtn = styled.button`
   text-align: -webkit-center;
   z-index: 999;
 
-  right: var(--btn-spacing);
   top: var(--btn-spacing);
+  right: var(--btn-spacing);
 
   &:hover {
     cursor: pointer;
@@ -34,8 +34,8 @@ const StyledBookmarkBtn = styled.button`
   @media (min-width: 37.5rem) {
     --btn-spacing: 1rem;
 
-    right: var(--btn-spacing);
     top: var(--btn-spacing);
+    right: var(--btn-spacing);
   }
 `;
 
@@ -53,9 +53,9 @@ const StyledPlayBtn = styled.button`
     display: flex;
     align-items: center;
     justify-content: space-around;
-    margin-inline: auto;
     width: min-content;
     border-radius: 2rem;
+    margin-inline: auto;
     text-transform: uppercase;
 
     h4 {
@@ -63,9 +63,11 @@ const StyledPlayBtn = styled.button`
     }
 
     .play__icon {
+      --btn-sizing: 2rem;
+
       content: url("src/assets/icon-play.svg");
-      height: 30px;
-      width: 30px;
+      height: var(--btn-sizing);
+      width: var(--btn-sizing);
       opacity: 0.8;
     }
   }
@@ -123,12 +125,12 @@ const StyledSliderImage = styled.picture`
 `;
 
 const StyledCellMetadata = styled.div`
-  --padding-inline: 0.8rem;
   --padding-block: 0.8rem;
+  --padding-inline: 0.8rem;
 
   position: absolute;
-  padding-inline: var(--padding-inline);
   padding-block: var(--padding-block);
+  padding-inline: var(--padding-inline);
   width: var(--w-fill);
 
   .item__title {
@@ -138,11 +140,11 @@ const StyledCellMetadata = styled.div`
   /* Media - Tablet and up */
   // 600px
   @media (min-width: 37.5rem) {
-    --padding-inline: 1.5rem;
     --padding-block: 1rem;
+    --padding-inline: 1.5rem;
 
-    padding-inline: var(--padding-inline);
     padding-block: var(--padding-block);
+    padding-inline: var(--padding-inline);
 
     .item__title {
       font-size: var(--heading-md);
@@ -152,18 +154,18 @@ const StyledCellMetadata = styled.div`
 
 const StyledTrendingBookmark = styled.button`
   --btn-spacing: 1rem;
+  --btn-sizing: 2rem;
 
   position: absolute;
   border: none;
   border-radius: 50%;
-  height: 32px;
-  width: 32px;
+  height: var(--btn-sizing);
+  width: var(--btn-sizing);
+  top: var(--btn-spacing);
+  right: var(--btn-spacing);
   text-align: center;
   text-align: -webkit-center;
   z-index: 999;
-
-  top: var(--btn-spacing);
-  right: var(--btn-spacing);
 
   &:hover {
     cursor: pointer;

@@ -17,13 +17,15 @@ const StyledLoader = styled.div`
 `;
 
 const StyledBarBlock = styled.div`
+  --width: 6.25rem;
+
   position: relative;
   display: flex;
-  justify-content: center;
   align-items: flex-end;
-  height: 36px;
-  width: 100px;
-  min-width: 100px;
+  justify-content: center;
+  height: 2rem;
+  min-width: var(--width);
+  width: var(--width);
 
   margin: 0;
   left: 0;
@@ -39,17 +41,17 @@ const StyledBar = styled.div<BarProps>`
   background-color: var(--theme-accent);
   width: 0.8rem;
   height: 0.5rem;
-  margin-inline: 2px;
   margin-block: 0;
+  margin-inline: 0.125rem;
 
   /* animation */
   animation-name: ${dance};
-  animation-duration: 400ms;
-  animation-play-state: running;
-  animation-direction: alternate;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
   animation-delay: ${(props) => props.delay || "0ms"};
+  animation-direction: alternate;
+  animation-duration: 400ms;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+  animation-timing-function: linear;
 `;
 
 export default function Loader() {

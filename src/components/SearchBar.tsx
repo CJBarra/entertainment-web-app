@@ -2,19 +2,6 @@ import styled from "styled-components/macro";
 
 import SearchSvg from "../assets/icon-search.svg";
 
-export default function Search() {
-  return (
-    <StyledSearch>
-      <form>
-        <StyledInputContainer>
-          <StyledIcon src={SearchSvg} alt="search" />
-          <StyledSearchInput placeholder="Search for Movies or TV Series" />
-        </StyledInputContainer>
-      </form>
-    </StyledSearch>
-  );
-}
-
 const StyledSearch = styled.div`
   margin-block: 1rem;
 `;
@@ -24,6 +11,13 @@ const StyledInputContainer = styled.div`
   align-items: center;
   justify-content: start;
   padding-block: 0.5rem;
+`;
+
+const StyledIcon = styled.img`
+  --img-sizing: 1.5rem;
+
+  height: var(--img-sizing);
+  width: var(--img-sizing);
 `;
 
 const StyledSearchInput = styled.input.attrs((props) => ({
@@ -62,7 +56,15 @@ const StyledSearchInput = styled.input.attrs((props) => ({
   }
 `;
 
-const StyledIcon = styled.img`
-  width: 24px;
-  height: 24px;
-`;
+export default function Search() {
+  return (
+    <StyledSearch>
+      <form>
+        <StyledInputContainer>
+          <StyledIcon src={SearchSvg} alt="search" />
+          <StyledSearchInput placeholder="Search for Movies or TV Series" />
+        </StyledInputContainer>
+      </form>
+    </StyledSearch>
+  );
+}
