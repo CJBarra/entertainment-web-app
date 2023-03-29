@@ -39,7 +39,9 @@ const StyledItemMetadata = styled.div`
     margin-inline: 0.25rem;
   }
 
-  @media (min-width: 37.5rem){
+  /* Media - Tablet and up */
+  // 600px
+  @media (min-width: 37.5rem) {
     .item__metadata {
       font-size: var(--body-sm);
     }

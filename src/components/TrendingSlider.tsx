@@ -1,5 +1,8 @@
-import { ReactNode } from "react";
 import styled from "styled-components/macro";
+
+import api from "@/api/v1/data.json";
+import GridItem from "./GridItem";
+import Loader from "./Loader";
 
 const StyledSlider = styled.div`
   position: relative;
@@ -29,26 +32,41 @@ const StyledSliderScroller = styled.div`
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 
-  /* Media - Tablet and up */
-  /* 900px */
+  /* Media - Small Desktop and up */
+  // 900px
   @media (min-width: 56.25rem) {
     grid-auto-columns: 36.66%;
   }
 
-  /* 600px */
+  /* Media - Tablet and up */
+  // 600px
   @media (min-width: 37.5rem) {
     column-gap: 2rem;
   }
 `;
 
-type SliderProps = { children: ReactNode };
+// type SliderProps = { children: ReactNode };
 
-function SliderLayout({ children }: SliderProps) {
+function TrendingSlider() {
   return (
     <StyledSlider>
-      <StyledSliderScroller>{children}</StyledSliderScroller>
+      <StyledSliderScroller>
+        {api.length ? (
+          api
+            .filter((record) => (record.isTrending === true ? record : null))
+            .map((record) => (
+              <GridItem
+                path={record}
+                thumbType={"trending"}
+                key={record.year + "_" + record.title}
+              />
+            ))
+        ) : (
+          <Loader />
+        )}
+      </StyledSliderScroller>
     </StyledSlider>
   );
 }
 
-export default SliderLayout;
+export default TrendingSlider;

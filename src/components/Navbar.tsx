@@ -7,12 +7,11 @@ const NavHero = styled.nav`
   position: relative;
   display: flex;
   align-items: center;
-  
+
   height: 56px;
   margin-block: 0 1rem;
   margin-inline: 0;
   padding-inline: 1rem;
-
 
   /* Media - Tablet and up */
   // 600px
@@ -41,7 +40,6 @@ const NavButtonGroup = styled.ul`
   justify-content: space-between;
   margin-inline: auto;
 
-
   li {
     a:hover,
     a:focus {
@@ -56,17 +54,21 @@ const NavButtonGroup = styled.ul`
       }
     }
   }
+
   li:not(:last-of-type) {
     margin-inline: 0 1.5rem;
   }
 
-
+  /* Media - Tablet and up */
+  // 600px 
   @media (min-width: 37.5rem) {
     li:not(:last-of-type) {
       margin-inline: 0 2rem;
     }
   }
 
+  /* Media - Small Desktop and up */
+  // 900px
   @media (min-width: 56.25rem) {
     flex-direction: column;
     align-items: center;
@@ -78,7 +80,6 @@ const NavButtonGroup = styled.ul`
       margin-inline: 0;
     }
   }
-  
 `;
 
 const NavUserProfile = styled.button`
@@ -122,7 +123,6 @@ export default function Navbar() {
         <li>
           <Link to="/">
             <NavHomeSvg />
-            {/* <HomeSvg /> */}
           </Link>
         </li>
         <li>

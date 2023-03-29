@@ -1,6 +1,6 @@
-import styled from 'styled-components/macro';
+import styled from "styled-components/macro";
 
-import ItemMetadata from './ItemMetadata';
+import ItemMetadata from "./ItemMetadata";
 // import PlayIcon from '../assets/icon-play.svg'
 
 const StyledGridItem = styled.div``;
@@ -29,6 +29,8 @@ const StyledBookmarkBtn = styled.button`
     cursor: pointer;
   }
 
+  /* Media - Tablet and up */
+  // 600px
   @media (min-width: 37.5rem) {
     --btn-spacing: 1rem;
 
@@ -61,7 +63,7 @@ const StyledPlayBtn = styled.button`
     }
 
     .play__icon {
-      content: url('src/assets/icon-play.svg');
+      content: url("src/assets/icon-play.svg");
       height: 30px;
       width: 30px;
       opacity: 0.8;
@@ -69,7 +71,11 @@ const StyledPlayBtn = styled.button`
   }
 
   &:hover {
-    --gradient-overlay: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    --gradient-overlay: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    );
 
     background: var(--gradient-overlay);
     color: var(--text-primary);
@@ -78,6 +84,8 @@ const StyledPlayBtn = styled.button`
     transition: all 300ms ease;
   }
 
+  /* Media - Tablet and up */
+  // 600px
   @media (min-width: 37.5rem) {
     --btn-padding: 0.5rem;
 
@@ -128,7 +136,7 @@ const StyledCellMetadata = styled.div`
   }
 
   /* Media - Tablet and up */
-  /* 600px */
+  // 600px
   @media (min-width: 37.5rem) {
     --padding-inline: 1.5rem;
     --padding-block: 1rem;
@@ -161,6 +169,8 @@ const StyledTrendingBookmark = styled.button`
     cursor: pointer;
   }
 
+  /* Media - Tablet and up */
+  // 600px
   @media (min-width: 37.5rem) {
     --btn-spacing-block: 1rem;
     --btn-spacing-inline: 1.5rem;
@@ -181,7 +191,7 @@ function GridItem({ path, thumbType }: GridItemProps) {
    * Check thumbType prop for trending string,
    * then render alternate appearance of GridItem for Slider
    * */
-  if (thumbType.toLowerCase() === 'trending') {
+  if (thumbType.toLowerCase() === "trending") {
     return (
       <StyledSliderCell className="slider__cell">
         <StyledTrendingBookmark>
@@ -209,7 +219,11 @@ function GridItem({ path, thumbType }: GridItemProps) {
             srcSet={path.thumbnail[thumbType]?.large}
             type="image/jpeg"
           />
-          <img className="cell__img" src={path.thumbnail[thumbType]?.small} alt={path.title} />
+          <img
+            className="cell__img"
+            src={path.thumbnail[thumbType]?.small}
+            alt={path.title}
+          />
         </StyledSliderImage>
 
         <StyledCellMetadata className="cell__meta__overlay">

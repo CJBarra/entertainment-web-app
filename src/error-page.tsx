@@ -15,12 +15,15 @@ const ErrorElement = styled.div`
     font-size: var(--heading-md);
   }
 
+  /* Media - Small Desktop and up */
+  // 900px
   @media (min-width: 56.25rem) {
     h1 {
       font-size: var(--heading-lg);
     }
   }
 `;
+
 const ErrorMessage = styled.p`
   i {
     color: var(--theme-accent);

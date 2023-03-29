@@ -135,7 +135,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   
-  /* Media - Tablet and up */
+  /* Media - Small Desktop and up */
   /* 900px */
   @media (min-width: 56.25rem){
     h1, h2 {

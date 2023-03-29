@@ -32,8 +32,8 @@ const StyledSearchInput = styled.input.attrs((props) => ({
   background: transparent;
   border: none;
   border-bottom: 1px solid transparent;
-  margin-inline: 0.5rem 0;
   width: var(--w-fill);
+  margin-inline: 0.5rem 0;
   color: var(--text-primary);
 
   ::placeholder {
@@ -52,6 +52,8 @@ const StyledSearchInput = styled.input.attrs((props) => ({
     color: var(--text-primary);
   }
 
+  /* Media - Tablet and up */
+  // 900px
   @media (min-width: 56.25rem) {
     width: 50%;
     margin-inline: 1rem;

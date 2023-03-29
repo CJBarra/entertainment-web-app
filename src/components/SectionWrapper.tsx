@@ -1,4 +1,3 @@
-import { ReactNode } from "react";
 import styled from "styled-components/macro";
 
 const StyledSection = styled.section`
@@ -16,7 +15,7 @@ const StyledSectionHeading = styled.div`
 
 type SectionProps = {
   title: string;
-  children: ReactNode;
+  children: React.ReactNode;
 };
 
 function SectionWrapper({ title, children }: SectionProps) {
