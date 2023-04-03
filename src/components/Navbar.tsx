@@ -1,14 +1,14 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components/macro";
 
-const NavHero = styled.nav`
-  --nav-height: 3.5rem;
+const StyledNav = styled.nav`
+  --nav-spacing: 4.5rem;
   --block-sizing: 1rem;
   --inline-sizing: 1rem;
 
   background: var(--theme-secondary);
-  border-radius: 0.375rem;
   position: relative;
+  border-radius: 0.375rem;
   display: flex;
   align-items: center;
   height: 3.5rem;
@@ -22,7 +22,7 @@ const NavHero = styled.nav`
     --block-sizing: 1.5rem;
     --inline-sizing: 1.5rem;
 
-    height: 4.5rem;
+    height: var(--nav-spacing);
     margin-block: 2rem;
     margin-inline: var(--inline-sizing);
     padding-inline: var(--inline-sizing);
@@ -32,7 +32,7 @@ const NavHero = styled.nav`
   // 900px
   @media (min-width: 56.25rem) {
     flex-direction: column;
-    width: 4.5rem;
+    width: var(--nav-spacing);
     height: 60rem;
     margin-inline: 1.5rem;
     padding-block: 2rem;
@@ -123,7 +123,7 @@ import {
 
 export default function Navbar() {
   return (
-    <NavHero>
+    <StyledNav>
       <div className="nav__logo">
         <LogoSvg />
       </div>
@@ -157,6 +157,6 @@ export default function Navbar() {
       <NavUserProfile className="user-btn">
         <img src={UserImg} alt="username" />
       </NavUserProfile>
-    </NavHero>
+    </StyledNav>
   );
 }

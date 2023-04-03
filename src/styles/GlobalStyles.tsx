@@ -90,8 +90,8 @@ const GlobalStyle = createGlobalStyle`
 
   input[type=search]:active, 
   input[type=search]:focus {
-    caret-color: var(--theme-accent);
     border-bottom: 1px solid var(--theme-secondary);
+    caret-color: var(--theme-accent);
   }
 
   input:not([value = ""]) {

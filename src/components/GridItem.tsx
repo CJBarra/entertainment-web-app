@@ -12,12 +12,13 @@ const StyledGridItemOnHover = styled.div`
 
 const StyledBookmarkBtn = styled.button`
   --btn-spacing: 0.4rem;
+  --btn-size: 2rem;
 
   position: absolute;
-  height: 32px;
-  width: 32px;
   border: none;
   border-radius: 50%;
+  height: var(--btn-size);
+  width: var(--btn-size);
   text-align: center;
   text-align: -webkit-center;
   z-index: 999;
@@ -50,11 +51,11 @@ const StyledPlayBtn = styled.button`
     --btn-hover: hsl(0deg 0% 100% / 20%);
 
     background-color: var(--btn-hover);
+    border-radius: 2rem;
     display: flex;
     align-items: center;
     justify-content: space-around;
     width: min-content;
-    border-radius: 2rem;
     margin-inline: auto;
     text-transform: uppercase;
 
@@ -63,11 +64,11 @@ const StyledPlayBtn = styled.button`
     }
 
     .play__icon {
-      --btn-sizing: 2rem;
+      --btn-size: 2rem;
 
       content: url("src/assets/icon-play.svg");
-      height: var(--btn-sizing);
-      width: var(--btn-sizing);
+      height: var(--btn-size);
+      width: var(--btn-size);
       opacity: 0.8;
     }
   }
@@ -154,13 +155,13 @@ const StyledCellMetadata = styled.div`
 
 const StyledTrendingBookmark = styled.button`
   --btn-spacing: 1rem;
-  --btn-sizing: 2rem;
+  --btn-size: 2rem;
 
   position: absolute;
   border: none;
   border-radius: 50%;
-  height: var(--btn-sizing);
-  width: var(--btn-sizing);
+  height: var(--btn-size);
+  width: var(--btn-size);
   top: var(--btn-spacing);
   right: var(--btn-spacing);
   text-align: center;
