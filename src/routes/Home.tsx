@@ -1,22 +1,14 @@
-import {
-  Loader,
-  GridItem,
-  GridLayout,
-  SectionWrapper,
-  TrendingSlider,
-} from "@/components";
-import api from "@/api/v1/data.json";
+import api from '@/api/v1/data.json';
+import { Loader, GridItem, GridLayout, SectionWrapper, TrendingSlider } from '@/components';
 
 export default function Home() {
   return (
     <>
-      <SectionWrapper title={"Trending"}>
+      <SectionWrapper title={'Trending'}>
         <TrendingSlider />
       </SectionWrapper>
 
-      {/* <Loader /> */}
-
-      <SectionWrapper title={"Recommended for you"}>
+      <SectionWrapper title={'Recommended for you'}>
         <GridLayout>
           {api.length ? (
             api
@@ -24,8 +16,8 @@ export default function Home() {
               .map((record) => (
                 <GridItem
                   path={record}
-                  thumbType={"regular"}
-                  key={record.year + "_" + record.title}
+                  thumbType={'regular'}
+                  key={record.year + '_' + record.title}
                 />
               ))
           ) : (

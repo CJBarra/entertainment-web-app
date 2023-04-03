@@ -1,7 +1,8 @@
-import styled from "styled-components/macro";
+import { useState } from 'react';
+import styled from 'styled-components/macro';
 
-import ItemMetadata from "./ItemMetadata";
-// import PlayIcon from '../assets/icon-play.svg'
+import { BookmarkEmpty, BookmarkFull } from './NavButtons';
+import ItemMetadata from './ItemMetadata';
 
 const StyledGridItem = styled.div``;
 
@@ -10,21 +11,28 @@ const StyledGridItemOnHover = styled.div`
   z-index: 1;
 `;
 
-const StyledBookmarkBtn = styled.button`
-  --btn-spacing: 0.4rem;
+interface BookmarkProps {
+  itemStyle: string;
+}
+
+const StyledBookmarkBtn = styled.button<BookmarkProps>`
   --btn-size: 2rem;
+  --btn-spacing: 0.4rem;
+  --trend-btn-spacing: 1rem;
 
   position: absolute;
   border: none;
   border-radius: 50%;
   height: var(--btn-size);
   width: var(--btn-size);
+  top: ${(props) =>
+    props.itemStyle === 'trending' ? 'var(--trend-btn-spacing)' : 'var(--btn-spacing)'};
+  right: ${(props) =>
+    props.itemStyle === 'trending' ? 'var(--trend-btn-spacing)' : 'var(--btn-spacing)'};
+
   text-align: center;
   text-align: -webkit-center;
   z-index: 999;
-
-  top: var(--btn-spacing);
-  right: var(--btn-spacing);
 
   &:hover {
     cursor: pointer;
@@ -34,11 +42,14 @@ const StyledBookmarkBtn = styled.button`
   // 600px
   @media (min-width: 37.5rem) {
     --btn-spacing: 1rem;
+    --trend-btn-spacing-inline: 1.5rem;
 
     top: var(--btn-spacing);
-    right: var(--btn-spacing);
+    right: ${(props) =>
+      props.itemStyle === 'trending' ? 'var(--trend-btn-spacing-inline)' : 'var(--btn-spacing)'};
   }
 `;
+
 
 const StyledPlayBtn = styled.button`
   position: absolute;
@@ -66,7 +77,7 @@ const StyledPlayBtn = styled.button`
     .play__icon {
       --btn-size: 2rem;
 
-      content: url("src/assets/icon-play.svg");
+      content: url('src/assets/icon-play.svg');
       height: var(--btn-size);
       width: var(--btn-size);
       opacity: 0.8;
@@ -74,11 +85,7 @@ const StyledPlayBtn = styled.button`
   }
 
   &:hover {
-    --gradient-overlay: linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0.5),
-      rgba(0, 0, 0, 0.5)
-    );
+    --gradient-overlay: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
 
     background: var(--gradient-overlay);
     color: var(--text-primary);
@@ -153,35 +160,6 @@ const StyledCellMetadata = styled.div`
   }
 `;
 
-const StyledTrendingBookmark = styled.button`
-  --btn-spacing: 1rem;
-  --btn-size: 2rem;
-
-  position: absolute;
-  border: none;
-  border-radius: 50%;
-  height: var(--btn-size);
-  width: var(--btn-size);
-  top: var(--btn-spacing);
-  right: var(--btn-spacing);
-  text-align: center;
-  text-align: -webkit-center;
-  z-index: 999;
-
-  &:hover {
-    cursor: pointer;
-  }
-
-  /* Media - Tablet and up */
-  // 600px
-  @media (min-width: 37.5rem) {
-    --btn-spacing-block: 1rem;
-    --btn-spacing-inline: 1.5rem;
-
-    top: var(--btn-spacing-block);
-    right: var(--btn-spacing-inline);
-  }
-`;
 /* ------------ Styles End -------------- */
 
 type GridItemProps = {
@@ -190,23 +168,34 @@ type GridItemProps = {
 };
 
 function GridItem({ path, thumbType }: GridItemProps) {
+  const [isBookmarked, setIsBookmarked] = useState(path.isBookmarked);
+  const [isClicked, setIsClicked] = useState(false);
+
+  console.log(path.title, path.isBookmarked);
+
+  function handleBookmark() {
+    if (isClicked && isBookmarked === true) {
+      setIsBookmarked(false);
+    } else {
+      setIsBookmarked(true);
+    }
+    setIsClicked(!isClicked);
+  }
+
   /**
    * Check thumbType prop for trending string,
-   * then render alternate appearance of GridItem for Slider
+   * then render alternate appearance of components.
+   * Affected components being StyledGridItem => StyledSliderCell and StyledBookmarkBtn
    * */
-  if (thumbType.toLowerCase() === "trending") {
+  let itemStyle = thumbType.toLowerCase();
+
+  // Slider GridItem appearance
+  if (itemStyle === 'trending') {
     return (
       <StyledSliderCell className="slider__cell">
-        <StyledTrendingBookmark>
-          <svg width="12" height="14" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="m10.518.75.399 12.214-5.084-4.24-4.535 4.426L.75 1.036l9.768-.285Z"
-              stroke="#FFF"
-              strokeWidth="1.5"
-              fill="none"
-            />
-          </svg>
-        </StyledTrendingBookmark>
+        <StyledBookmarkBtn itemStyle={itemStyle} onClick={handleBookmark}>
+          {isBookmarked ? <BookmarkFull /> : <BookmarkEmpty />}
+        </StyledBookmarkBtn>
 
         {/* play btn */}
         <StyledPlayBtn className="grid__play__btn">
@@ -222,11 +211,7 @@ function GridItem({ path, thumbType }: GridItemProps) {
             srcSet={path.thumbnail[thumbType]?.large}
             type="image/jpeg"
           />
-          <img
-            className="cell__img"
-            src={path.thumbnail[thumbType]?.small}
-            alt={path.title}
-          />
+          <img className="cell__img" src={path.thumbnail[thumbType]?.small} alt={path.title} />
         </StyledSliderImage>
 
         <StyledCellMetadata className="cell__meta__overlay">
@@ -246,15 +231,8 @@ function GridItem({ path, thumbType }: GridItemProps) {
     <StyledGridItem className="grid__item">
       <StyledGridItemOnHover>
         {/* bookmark btn */}
-        <StyledBookmarkBtn className="grid__bookmark__btn">
-          <svg width="12" height="14" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="m10.518.75.399 12.214-5.084-4.24-4.535 4.426L.75 1.036l9.768-.285Z"
-              stroke="#FFF"
-              strokeWidth="1.5"
-              fill="none"
-            />
-          </svg>
+        <StyledBookmarkBtn itemStyle={itemStyle} onClick={handleBookmark}>
+          {isBookmarked ? <BookmarkFull /> : <BookmarkEmpty />}
         </StyledBookmarkBtn>
 
         {/* play btn */}
@@ -282,10 +260,10 @@ function GridItem({ path, thumbType }: GridItemProps) {
       </StyledGridItemOnHover>
 
       <ItemMetadata
-        year={path.year}
         category={path.category}
         rating={path.rating}
         title={path.title}
+        year={path.year}
       />
     </StyledGridItem>
   );
