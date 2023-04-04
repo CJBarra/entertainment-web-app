@@ -95,8 +95,7 @@ const NavUserProfile = styled.button`
   border: none;
   border-radius: 50%;
 
-  &:hover,
-  &:focus {
+  &:hover {
     background: transparent;
     cursor: pointer;
   }
@@ -119,7 +118,7 @@ import {
   NavMoviesSvg,
   NavBookmarkedSvg,
   NavTvSeriesSvg,
-} from "./NavButtons";
+} from "./Icons";
 
 export default function Navbar() {
   return (

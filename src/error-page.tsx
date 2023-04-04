@@ -1,7 +1,8 @@
-import { isRouteErrorResponse, useRouteError } from "react-router-dom";
-import styled from "styled-components/macro";
+import { isRouteErrorResponse, useRouteError } from 'react-router-dom';
+import styled from 'styled-components/macro';
+import { Heading } from './components';
 
-import { GlobalStyle } from "./styles";
+import { GlobalStyle } from './styles';
 
 const ErrorElement = styled.div`
   display: flex;
@@ -24,11 +25,20 @@ const ErrorElement = styled.div`
   }
 `;
 
-const ErrorMessage = styled.p`
+const StyledErrorMessage = styled.p`
   i {
     color: var(--theme-accent);
   }
 `;
+
+
+type MessageProps = {
+  message: string;
+};
+function ErrorMessage({ message }: MessageProps) {
+  return <StyledErrorMessage>{message}</StyledErrorMessage>;
+}
+
 
 export default function ErrorPage() {
   const error = useRouteError();
@@ -39,14 +49,16 @@ export default function ErrorPage() {
       <ErrorElement id="error-page">
         <GlobalStyle />
 
-        <h1>Hmm...</h1>
-        <ErrorMessage>Something went wrong here.</ErrorMessage>
-        <ErrorMessage>
-          <i>{error.statusText || error.data?.message}</i>
-        </ErrorMessage>
+        <Heading title={'Hmm...'} />
+        <ErrorMessage message={'Something went wrong here.'} />
+        <ErrorMessage message={error.statusText || error.data?.message} />
       </ErrorElement>
     );
   } else {
-    return <div>Well, something went wrong here.</div>;
+    return (
+      <ErrorElement>
+        <ErrorMessage message={'Well, something went wrong here.'} />
+      </ErrorElement>
+    );
   }
 }

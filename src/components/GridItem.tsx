@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import styled from 'styled-components/macro';
 
-import { BookmarkEmpty, BookmarkFull } from './NavButtons';
+import { BookmarkEmpty, BookmarkFull, PlaySvg } from './Icons';
 import ItemMetadata from './ItemMetadata';
 
 const StyledGridItem = styled.div``;
 
-const StyledGridItemOnHover = styled.div`
+const StyledGridItemContainer = styled.div`
   position: relative;
   z-index: 1;
 `;
@@ -14,7 +14,6 @@ const StyledGridItemOnHover = styled.div`
 interface BookmarkProps {
   itemStyle: string;
 }
-
 const StyledBookmarkBtn = styled.button<BookmarkProps>`
   --btn-size: 2rem;
   --btn-spacing: 0.4rem;
@@ -70,7 +69,7 @@ const StyledPlayBtn = styled.button`
     margin-inline: auto;
     text-transform: uppercase;
 
-    h4 {
+    .play__label {
       display: none;
     }
 
@@ -104,7 +103,7 @@ const StyledPlayBtn = styled.button`
       padding-inline: var(--btn-padding);
     }
 
-    .play__container > h4 {
+    .play__container > .play__label {
       display: block;
     }
 
@@ -127,12 +126,12 @@ const StyledSliderCell = styled.div`
   align-items: flex-end;
 `;
 
-const StyledSliderImage = styled.picture`
+const StyledSliderPicture = styled.picture`
   object-fit: cover;
   inset: 0;
 `;
 
-const StyledCellMetadata = styled.div`
+const StyledMetaContainer = styled.div`
   --padding-block: 0.8rem;
   --padding-inline: 0.8rem;
 
@@ -171,7 +170,7 @@ function GridItem({ path, thumbType }: GridItemProps) {
   const [isBookmarked, setIsBookmarked] = useState(path.isBookmarked);
   const [isClicked, setIsClicked] = useState(false);
 
-  console.log(path.title, path.isBookmarked);
+  // console.log(path.title, path.isBookmarked);
 
   function handleBookmark() {
     if (isClicked && isBookmarked === true) {
@@ -205,23 +204,23 @@ function GridItem({ path, thumbType }: GridItemProps) {
           </div>
         </StyledPlayBtn>
 
-        <StyledSliderImage className="cell__img__container ">
+        <StyledSliderPicture className="slider__img__container ">
           <source
             media="(min-width: 600px)"
             srcSet={path.thumbnail[thumbType]?.large}
             type="image/jpeg"
           />
-          <img className="cell__img" src={path.thumbnail[thumbType]?.small} alt={path.title} />
-        </StyledSliderImage>
+          <img className="slider__img" src={path.thumbnail[thumbType]?.small} alt={path.title} />
+        </StyledSliderPicture>
 
-        <StyledCellMetadata className="cell__meta__overlay">
+        <StyledMetaContainer className="slider__meta__overlay">
           <ItemMetadata
             year={path.year}
             category={path.category}
             rating={path.rating}
             title={path.title}
           />
-        </StyledCellMetadata>
+        </StyledMetaContainer>
       </StyledSliderCell>
     );
   }
@@ -229,9 +228,9 @@ function GridItem({ path, thumbType }: GridItemProps) {
   // Default GridItem appearance
   return (
     <StyledGridItem className="grid__item">
-      <StyledGridItemOnHover>
+      <StyledGridItemContainer>
         {/* bookmark btn */}
-        <StyledBookmarkBtn itemStyle={itemStyle} onClick={handleBookmark}>
+        <StyledBookmarkBtn itemStyle={itemStyle} onClick={handleBookmark} >
           {isBookmarked ? <BookmarkFull /> : <BookmarkEmpty />}
         </StyledBookmarkBtn>
 
@@ -257,7 +256,7 @@ function GridItem({ path, thumbType }: GridItemProps) {
           />
           <img src={path.thumbnail[thumbType]?.small} alt={path.title} />
         </StyledPicture>
-      </StyledGridItemOnHover>
+      </StyledGridItemContainer>
 
       <ItemMetadata
         category={path.category}

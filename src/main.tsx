@@ -1,37 +1,39 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import { App, Home, Movies, TvSeries, Bookmarked } from "./routes";
-import ErrorPage from "./error-page";
+import { App, Home, Movies, TvSeries, Bookmarked } from './routes';
+import ErrorPage from './error-page';
+// import { getAllMedia } from './api';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
       {
         index: true,
+        // loader: () => getAllMediaItems(),
         element: <Home />,
       },
       {
-        path: "/movies",
+        path: '/movies',
         element: <Movies />,
       },
       {
-        path: "/tv-series",
+        path: '/tv-series',
         element: <TvSeries />,
       },
       {
-        path: "/bookmarked",
+        path: '/bookmarked',
         element: <Bookmarked />,
       },
     ],
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <RouterProvider router={router} />
   </React.StrictMode>

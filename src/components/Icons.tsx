@@ -1,3 +1,5 @@
+import { HTMLAttributes } from "react";
+
 export function NavHomeSvg() {
   return (
     <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
@@ -71,6 +73,28 @@ export function BookmarkFull() {
     <svg width="12" height="14" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M10.61 0c.14 0 .273.028.4.083a1.03 1.03 0 0 1 .657.953v11.928a1.03 1.03 0 0 1-.656.953c-.116.05-.25.074-.402.074-.291 0-.543-.099-.756-.296L5.833 9.77l-4.02 3.924c-.218.203-.47.305-.756.305a.995.995 0 0 1-.4-.083A1.03 1.03 0 0 1 0 12.964V1.036A1.03 1.03 0 0 1 .656.083.995.995 0 0 1 1.057 0h9.552Z"
+        fill="#FFF"
+      />
+    </svg>
+  );
+}
+
+export function PlaySvg() {
+  return (
+    <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M15 0C6.713 0 0 6.713 0 15c0 8.288 6.713 15 15 15 8.288 0 15-6.712 15-15 0-8.287-6.712-15-15-15Zm-3 21V8l9 6.5-9 6.5Z"
+        fill="#FFF"
+      />
+    </svg>
+  );
+}
+
+export function SearchSvg() {
+  return (
+    <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M27.613 25.72 23.08 21.2a10.56 10.56 0 0 0 2.253-6.533C25.333 8.776 20.558 4 14.667 4S4 8.776 4 14.667c0 5.89 4.776 10.666 10.667 10.666A10.56 10.56 0 0 0 21.2 23.08l4.52 4.533a1.333 1.333 0 0 0 1.893 0 1.333 1.333 0 0 0 0-1.893ZM6.667 14.667a8 8 0 1 1 16 0 8 8 0 0 1-16 0Z"
         fill="#FFF"
       />
     </svg>
