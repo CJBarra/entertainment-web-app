@@ -20,9 +20,7 @@ const StyledIcon = styled.img`
   width: var(--img-sizing);
 `;
 
-const StyledSearchInput = styled.input.attrs((props) => ({
-  type: "search",
-}))`
+const StyledSearchInput = styled.input`
   background: transparent;
   border: none;
   border-bottom: 1px solid transparent;
@@ -52,15 +50,21 @@ const StyledSearchInput = styled.input.attrs((props) => ({
   }
 `;
 
-export default function Search() {
+type SearchProps = {
+  onSearch?: string;
+};
+
+export default function Search({ onSearch }: SearchProps) {
   return (
     <StyledSearch>
-      <form role="search">
-        <StyledInputContainer>
-          <StyledIcon src={SearchSvg} alt="search" />
-          <StyledSearchInput placeholder="Search for Movies or TV Series" />
-        </StyledInputContainer>
-      </form>
+      <StyledInputContainer>
+        <StyledIcon src={SearchSvg} alt="search" />
+        <StyledSearchInput
+          type="search"
+          placeholder="Search for Movies or TV Series"
+          // onInput={(e) => onSearch(e.currentTarget.value)}
+        />
+      </StyledInputContainer>
     </StyledSearch>
   );
 }

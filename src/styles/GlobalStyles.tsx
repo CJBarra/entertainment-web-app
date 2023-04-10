@@ -112,7 +112,7 @@ const GlobalStyle = createGlobalStyle`
     background-color: var(--theme-accent);
   }
 
-  button:hover, button:focus {
+  button:hover {
     background-color: var(--text-primary);
     color: var(--text-hover);
 

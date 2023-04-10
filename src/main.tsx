@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import { App, Home, Movies, TvSeries, Bookmarked } from './routes';
 import ErrorPage from './error-page';
-// import { getAllMedia } from './api';
+
 
 const router = createBrowserRouter([
   {
@@ -14,7 +14,6 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        // loader: () => getAllMediaItems(),
         element: <Home />,
       },
       {

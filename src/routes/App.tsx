@@ -37,10 +37,11 @@ function App() {
   return (
     <AppLayout>
       <GlobalStyle />
-      {/* always visibile nav && search bars */}
+      {/* always visibile nav && search bar */}
       <Navbar />
       <ContentContainer>
         <SearchBar />
+
         {/* routes */}
         <Outlet />
       </ContentContainer>
