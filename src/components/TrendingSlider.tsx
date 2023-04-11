@@ -1,8 +1,9 @@
-import styled from "styled-components/macro";
+import { useEffect, useState } from 'react';
+import styled from 'styled-components/macro';
 
-import api from "@/api/v1/data.json";
-import GridItem from "./GridItem";
-import Loader from "./Loader";
+import GridItem from './GridItem';
+import Loader from './Loader';
+import { getTrending, IMediaProps } from '@/api';
 
 const StyledSlider = styled.div`
   position: relative;
@@ -46,20 +47,28 @@ const StyledSliderScroller = styled.div`
   }
 `;
 
-// type SliderProps = { children: ReactNode };
 
-function TrendingSlider() {
+const TrendingSlider = () => {
+  const [trendingList, setTrendingList] = useState<Array<IMediaProps>>([]);
+
+  useEffect(() => {
+    const data = getTrending();
+    setTrendingList(data);
+  }, []);
+  
+  // console.log(trendingList);
+
   return (
     <StyledSlider>
       <StyledSliderScroller>
-        {api.length ? (
-          api
-            .filter((record) => (record.isTrending === true ? record : null))
+        {trendingList.length ? (
+          trendingList
             .map((record) => (
               <GridItem
                 path={record}
-                thumbType={"trending"}
-                key={record.year + "_" + record.title}
+                thumbType={'trending'}
+                key={record.year + '_' + record.title}
+                bookmarked={record.isBookmarked}
               />
             ))
         ) : (
@@ -68,6 +77,6 @@ function TrendingSlider() {
       </StyledSliderScroller>
     </StyledSlider>
   );
-}
+};
 
 export default TrendingSlider;

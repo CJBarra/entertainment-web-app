@@ -1,4 +1,4 @@
-import styled from "styled-components/macro";
+import styled from 'styled-components/macro';
 
 const StyledSection = styled.section`
   margin-block: 2rem;
@@ -18,8 +18,8 @@ type SectionProps = {
   children: React.ReactNode;
 };
 
-function SectionWrapper({ title, children }: SectionProps) {
-  if (title !== "") {
+const SectionWrapper = ({ title, children }: SectionProps) => {
+  if (title !== '') {
     return (
       <StyledSection>
         <div className="section__inner">
@@ -36,6 +36,6 @@ function SectionWrapper({ title, children }: SectionProps) {
       <div className="section__inner">{children}</div>
     </StyledSection>
   );
-}
+};
 
 export default SectionWrapper;

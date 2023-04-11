@@ -1,4 +1,4 @@
-import shows from "./api/v1/data.json";
+import shows from './api/v1/data.json';
 
 export interface IMediaProps {
   title: string;
@@ -22,30 +22,37 @@ export function getAllMedia<IMediaProps>() {
 }
 
 /**
- * GET ONLY all available records of movies 
+ * GET ONLY all available records of movies
  */
-export function getMovies() {
+export const getMovies = () => {
   {
-    shows &&
-      shows.filter((record) => record.category.toLowerCase() === "movies");
+    return shows.filter((record) => record.category.toLowerCase() === 'movies');
   }
-}
+};
 
 /**
  * GET ONLY all available records of TV Series
  */
-export function getTvSeries() {
+export const getTvSeries = () => {
   {
-    shows &&
-      shows.filter((record) => record.category.toLowerCase() === "tv series");
+    return shows.filter((record) => record.category.toLowerCase() === 'tv series');
   }
-}
+};
 
 /**
  * GET current users bookmarked media records
  */
-export function getBookmarked() {
+export const getBookmarked = () => {
   {
-    shows && shows.filter((record) => record.isBookmarked === true);
+    return shows.filter((record) => record.isBookmarked === true);
   }
-}
+};
+
+/**
+ * GET current Trending media records
+ */
+ export const getTrending = () => {
+  {
+    return shows.filter((record) => record.isTrending === true);
+  }
+};

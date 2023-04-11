@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components/macro';
 
-import { BookmarkEmpty, BookmarkFull, PlaySvg } from './Icons';
+import { BookmarkEmpty, BookmarkFull } from './Icons';
 import ItemMetadata from './ItemMetadata';
 
 const StyledGridItem = styled.div``;
@@ -48,7 +48,6 @@ const StyledBookmarkBtn = styled.button<BookmarkProps>`
       props.itemStyle === 'trending' ? 'var(--trend-btn-spacing-inline)' : 'var(--btn-spacing)'};
   }
 `;
-
 
 const StyledPlayBtn = styled.button`
   position: absolute;
@@ -161,25 +160,27 @@ const StyledMetaContainer = styled.div`
 
 /* ------------ Styles End -------------- */
 
-type GridItemProps = {
+interface GridItemProps {
   path: any;
   thumbType: string;
-};
+  bookmarked: boolean;
+}
 
-function GridItem({ path, thumbType }: GridItemProps) {
-  const [isBookmarked, setIsBookmarked] = useState(path.isBookmarked);
+const GridItem = ({ path, thumbType, bookmarked }: GridItemProps) => {
   const [isClicked, setIsClicked] = useState(false);
+  const [isBookmarked, setIsBookmarked] = useState(bookmarked);
 
-  // console.log(path.title, path.isBookmarked);
 
-  function handleBookmark() {
+  const handleBookmark = () => {
     if (isClicked && isBookmarked === true) {
       setIsBookmarked(false);
+      console.log(isBookmarked);
     } else {
       setIsBookmarked(true);
+      console.log(isBookmarked);
     }
     setIsClicked(!isClicked);
-  }
+  };
 
   /**
    * Check thumbType prop for trending string,
@@ -192,8 +193,8 @@ function GridItem({ path, thumbType }: GridItemProps) {
   if (itemStyle === 'trending') {
     return (
       <StyledSliderCell className="slider__cell">
-        <StyledBookmarkBtn itemStyle={itemStyle} onClick={handleBookmark}>
-          {isBookmarked ? <BookmarkFull /> : <BookmarkEmpty />}
+        <StyledBookmarkBtn itemStyle={itemStyle} onClick={() => handleBookmark}>
+          {isBookmarked === true ? <BookmarkFull /> : <BookmarkEmpty />}
         </StyledBookmarkBtn>
 
         {/* play btn */}
@@ -230,8 +231,8 @@ function GridItem({ path, thumbType }: GridItemProps) {
     <StyledGridItem className="grid__item">
       <StyledGridItemContainer>
         {/* bookmark btn */}
-        <StyledBookmarkBtn itemStyle={itemStyle} onClick={handleBookmark} >
-          {isBookmarked ? <BookmarkFull /> : <BookmarkEmpty />}
+        <StyledBookmarkBtn itemStyle={itemStyle} onClick={handleBookmark}>
+          {isBookmarked === true ? <BookmarkFull /> : <BookmarkEmpty />}
         </StyledBookmarkBtn>
 
         {/* play btn */}
@@ -266,6 +267,6 @@ function GridItem({ path, thumbType }: GridItemProps) {
       />
     </StyledGridItem>
   );
-}
+};
 
 export default GridItem;

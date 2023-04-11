@@ -2,6 +2,8 @@ type HeadingProps = {
   title: string;
 };
 
-export default function Heading({ title }: HeadingProps) {
+const Heading = ({ title }: HeadingProps) => {
   return <h1>{title}</h1>;
-}
+};
+
+export default Heading;

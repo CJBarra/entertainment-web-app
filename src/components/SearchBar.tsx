@@ -54,7 +54,7 @@ type SearchProps = {
   onSearch?: string;
 };
 
-export default function Search({ onSearch }: SearchProps) {
+const Search = ({ onSearch }: SearchProps) => {
   return (
     <StyledSearch>
       <StyledInputContainer>
@@ -68,3 +68,5 @@ export default function Search({ onSearch }: SearchProps) {
     </StyledSearch>
   );
 }
+
+export default Search

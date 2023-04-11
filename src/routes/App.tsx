@@ -1,8 +1,8 @@
-import { Outlet } from "react-router-dom";
-import styled from "styled-components/macro";
+import { Outlet } from 'react-router-dom';
+import styled from 'styled-components/macro';
 
-import { GlobalStyle } from "@/styles";
-import { Navbar, SearchBar } from "@/components";
+import { GlobalStyle } from '@/styles';
+import { Navbar, SearchBar } from '@/components';
 
 const AppLayout = styled.div`
   position: relative;
@@ -33,7 +33,7 @@ const ContentContainer = styled.div`
   }
 `;
 
-function App() {
+const App = () => {
   return (
     <AppLayout>
       <GlobalStyle />

@@ -30,7 +30,7 @@ const StyledGridLayout = styled.div`
 
 type GridProps = { children: ReactNode };
 
-function GridLayout({ children }: GridProps) {
+const GridLayout = ({ children }: GridProps) => {
   return <StyledGridLayout>{children}</StyledGridLayout>;
 }
 

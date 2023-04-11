@@ -1,7 +1,7 @@
-import styled from "styled-components/macro";
+import styled from 'styled-components/macro';
 
-const categoryIconMovie = "src/assets/icon-category-movie.svg";
-const categoryIconTV = "src/assets/icon-category-tv.svg";
+const categoryIconMovie = 'src/assets/icon-category-movie.svg';
+const categoryIconTV = 'src/assets/icon-category-tv.svg';
 
 const StyledItemMetadata = styled.div`
   .item__metadata {
@@ -17,12 +17,12 @@ const StyledItemMetadata = styled.div`
   }
 
   .item__metadata li:not(:first-child):before {
-    content: "·";
+    content: '·';
     padding-inline: 0.4rem;
   }
 
   .item__metadata li:first-child:before {
-    content: "";
+    content: '';
   }
 
   .item__metadata img {
@@ -57,23 +57,14 @@ type ItemMetadataProps = {
   year: any;
 };
 
-export default function ItemMetadata({
-  year,
-  category,
-  rating,
-  title,
-}: ItemMetadataProps) {
+const ItemMetadata = ({ year, category, rating, title }: ItemMetadataProps) => {
   return (
     <StyledItemMetadata>
       <ul className="item__metadata">
         <li className="meta__li">{year}</li>
         <li className="meta__li icon-category">
           <img
-            src={
-              category.toLowerCase() === "movie"
-                ? categoryIconMovie
-                : categoryIconTV
-            }
+            src={category.toLowerCase() === 'movie' ? categoryIconMovie : categoryIconTV}
             alt={category}
           />
           {category}
@@ -84,4 +75,6 @@ export default function ItemMetadata({
       <h4 className="item__title">{title}</h4>
     </StyledItemMetadata>
   );
-}
+};
+
+export default ItemMetadata;

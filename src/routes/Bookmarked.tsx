@@ -1,21 +1,31 @@
-import { SectionWrapper, GridLayout, GridItem, Loader } from "@/components";
-import api from "../api/v1/data.json";
+import { useState, useEffect } from 'react';
 
-export default function Bookmarked() {
+import { getBookmarked, IMediaProps } from '@/api';
+import { SectionWrapper, GridLayout, GridItem, Loader } from '@/components';
+
+const Bookmarked = () => {
+  const [bookmarkedList, setBookmarkedList] = useState<Array<IMediaProps>>([]);
+
+  useEffect(() => {
+    const data = getBookmarked();
+    setBookmarkedList(data);
+  }, []);
+
+  // console.log(bookmarkedList);
+
   return (
     <>
-      <SectionWrapper title={"Bookmarked"}>
+      <SectionWrapper title={'Bookmarked'}>
         <GridLayout>
-          {api ? (
-            api
-              .filter((record) => (record.isBookmarked === true ? record : null))
-              .map((record) => (
-                <GridItem
-                  path={record}
-                  thumbType={"regular"}
-                  key={record.year + "_" + record.title}
-                />
-              ))
+          {bookmarkedList.length ? (
+            bookmarkedList.map((record) => (
+              <GridItem
+                path={record}
+                thumbType={'regular'}
+                key={record.year + '_' + record.title}
+                bookmarked={record.isBookmarked}
+              />
+            ))
           ) : (
             <Loader />
           )}
@@ -23,4 +33,6 @@ export default function Bookmarked() {
       </SectionWrapper>
     </>
   );
-}
+};
+
+export default Bookmarked;

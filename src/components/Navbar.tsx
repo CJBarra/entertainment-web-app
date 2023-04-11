@@ -120,7 +120,7 @@ import {
   NavTvSeriesSvg,
 } from "./Icons";
 
-export default function Navbar() {
+const Navbar = () => {
   return (
     <StyledNav>
       <div className="nav__logo">
@@ -159,3 +159,5 @@ export default function Navbar() {
     </StyledNav>
   );
 }
+
+export default Navbar;

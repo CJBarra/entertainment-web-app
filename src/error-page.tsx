@@ -31,16 +31,14 @@ const StyledErrorMessage = styled.p`
   }
 `;
 
-
 type MessageProps = {
   message: string;
 };
-function ErrorMessage({ message }: MessageProps) {
+const ErrorMessage = ({ message }: MessageProps) => {
   return <StyledErrorMessage>{message}</StyledErrorMessage>;
-}
+};
 
-
-export default function ErrorPage() {
+const ErrorPage = () => {
   const error = useRouteError();
   // console.error(error instanceof Error);
 
@@ -61,4 +59,6 @@ export default function ErrorPage() {
       </ErrorElement>
     );
   }
-}
+};
+
+export default ErrorPage;
